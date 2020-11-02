@@ -3,7 +3,7 @@ from flask_pymongo import PyMongo
 from datetime import datetime
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/flask_crud"
+app.config["MONGO_URI"] = "mongodb://mongodb:27017/flask_crud"
 mongo = PyMongo(app)
 table = mongo.db.flask_crud
 
@@ -21,8 +21,12 @@ def index():
             print(e)
             return "Commit error"
     else:
-        tasks = list(table.find().sort('date_created'))
-        return render_template('index.html', tasks=tasks)
+        try:
+            tasks = list(table.find().sort('date_created'))
+            return render_template('index.html', tasks=tasks)
+        except Exception as e:
+            print(e)
+            return "Database connection error"
 
 
 @app.route("/delete/<ObjectId:_id>")

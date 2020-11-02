@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  flask:
+    build: .
+    ports:
+        - "8080:8080"
+  mongodb:
+    image: mongo
+    ports: 
+        - "27017:27017"
