@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, redirect
 from flask_pymongo import PyMongo
 from datetime import datetime
+from os import getenv
+
+db_address=getenv('DB_URL','localhost')
+db_port=getenv('DB_PORT','27017')
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://mongodb:27017/flask_crud"
+app.config["MONGO_URI"] = "mongodb://"+db_address+":"+db_port+"/flask_crud"
 mongo = PyMongo(app)
 table = mongo.db.flask_crud
 

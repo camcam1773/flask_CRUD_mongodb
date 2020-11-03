@@ -4,6 +4,7 @@ services:
     build: .
     environment:
       - PYTHONUNBUFFERED=1
+      - DB_URL=mongodb
     ports:
       - "8080:8080"
   mongodb:
