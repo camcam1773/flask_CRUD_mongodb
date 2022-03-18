@@ -4,8 +4,8 @@ name: Docker Compose test
 on:
   push:
     paths:
-      - './Dockerfile'
-      - './docker-compose.yaml'
+      - 'Dockerfile'
+      - 'docker-compose.yaml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
