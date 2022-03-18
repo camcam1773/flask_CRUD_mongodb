@@ -1,4 +1,4 @@
 flask==2.0.2
 flask-sqlalchemy==2.5.1
-flask-wtf==0.14.3
+flask-pymongo==2.3.0
 waitress==2.0.0
