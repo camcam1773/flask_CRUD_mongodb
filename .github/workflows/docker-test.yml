@@ -6,6 +6,7 @@ on:
     paths:
       - 'Dockerfile'
       - 'docker-compose.yaml'
+      - '.github/workflows/docker-test.yml'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,5 +28,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           docker-compose up -d --build
-          sleep 10
+          sleep 30
+          curl http://127.0.0.1:8080
           docker-compose down
