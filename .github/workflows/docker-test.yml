@@ -28,7 +28,7 @@ jobs:
       - name: Fetch artifacts
         run: |
           curl -w "%{http_code}\n" http://127.0.0.1:8080
-          echo $http_code
+          echo -e '\n$http_code'
           docker-compose logs
       - name: Run Tests
         run: |
