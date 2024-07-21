@@ -9,6 +9,7 @@ db_port = getenv('DB_PORT', '27017')
 app = Flask(__name__)
 app.config["MONGO_URI"] = "mongodb://{}:{}/flask_crud".format(db_address, db_port)
 mongo = PyMongo(app)
+table = mongo.db.flask_crud
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -59,5 +60,4 @@ def update(_id):
 
 
 if __name__ == "__main__":
-    table = mongo.db.flask_crud
     app.run(host="127.0.0.1", port=8080)
