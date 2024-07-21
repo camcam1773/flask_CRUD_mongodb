@@ -27,7 +27,8 @@ jobs:
           sleep 15
       - name: Fetch artifacts
         run: |
-          curl http://127.0.0.1:8080
+          curl -w "%{http_code}\n" http://127.0.0.1:8080
+          echo $http_code
           docker-compose logs
       - name: Run Tests
         run: |
