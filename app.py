@@ -59,9 +59,5 @@ def update(_id):
 
 
 if __name__ == "__main__":
-    import logging
-    from waitress import serve
-    logging.getLogger('waitress').setLevel(logging.INFO)
-    logging.getLogger('werkzeug').setLevel(logging.INFO)
     table = mongo.db.flask_crud
-    serve(app, host='0.0.0.0', port=8080)
+    app.run(host="127.0.0.1", port=8080)
