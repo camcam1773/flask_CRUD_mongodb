@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080"
   mongodb:
-    image: mongo
+    image: mongo:7
     hostname: mongodb
     ports:
       - "27017:27017"
