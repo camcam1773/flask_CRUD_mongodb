@@ -6,7 +6,6 @@ ADD requirements.txt /
 ADD ./templates /templates/
 ADD ./tests tests/
 
-RUN apk upgrade --no-cache
 RUN pip install --upgrade pip setuptools
 RUN pip install -r requirements.txt
 
