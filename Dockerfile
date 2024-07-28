@@ -6,7 +6,8 @@ ADD requirements.txt /
 ADD ./templates /templates/
 ADD ./tests tests/
 
-RUN pip install --upgrade pip
+RUN apk upgrade --no-cache
+RUN pip install --upgrade pip setuptools
 RUN pip install -r requirements.txt
 
 EXPOSE 8080
