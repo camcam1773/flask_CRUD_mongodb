@@ -28,7 +28,7 @@ jobs:
       - name: Fetch artifacts
         run: |
           curl -w "\n%{response_code}\n" http://127.0.0.1:8080
-          docker-compose logs
+          docker compose logs
       - name: Run Tests
         run: |
           docker compose exec flask pytest tests
