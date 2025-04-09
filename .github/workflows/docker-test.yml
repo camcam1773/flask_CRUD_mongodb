@@ -16,20 +16,20 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
       - name: Compose Build & Run
         run: |
-          docker-compose up -d --build
+          docker compose up -d --build
           sleep 15
       - name: Fetch artifacts
         run: |
           curl -w "\n%{response_code}\n" http://127.0.0.1:8080
-          docker-compose logs
+          docker compose logs
       - name: Run Tests
         run: |
           docker compose exec flask pytest tests
-          docker-compose down
+          docker compose down
